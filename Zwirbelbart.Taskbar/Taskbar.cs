@@ -112,7 +112,3 @@ namespace Zwirbelbart.Taskbar {
         }
     }
 }
-
-//http://winsharp93.wordpress.com/2009/06/29/find-out-size-and-position-of-the-taskbar/
-//http://blog.unlockforus.org/2012/05/windows-7-start-menu-taskbar-appearance.html
-//http://support.microsoft.com/kb/179908
