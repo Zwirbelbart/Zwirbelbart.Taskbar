@@ -1,6 +1,6 @@
 ﻿namespace Zwirbelbart.Taskbar
 {
-    public enum TaskbarButtonAppearance
+    public enum TaskbarItemAppearance
     {
         AlwaysCombine = 0,
         CombineWhenFull = 1,
