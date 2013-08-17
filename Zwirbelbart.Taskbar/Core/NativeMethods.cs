@@ -63,5 +63,10 @@ namespace Zwirbelbart.Taskbar.Core
             public const int Autohide = 0x0000001;
             public const int AlwaysOnTop = 0x0000002;
         }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+
+        public const UInt32 WM_SETTINGCHANGE = 0x001A;
     }
 }

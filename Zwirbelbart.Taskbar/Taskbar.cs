@@ -59,11 +59,12 @@ namespace Zwirbelbart.Taskbar {
 
         //implementation
         private static bool InternalGetIsLocked() {
-            return (int)RegistryUtil.GetValue(RegistryPath, IsLockedKey) == 0;
+            return (int) RegistryUtil.GetValue(RegistryPath, IsLockedKey) == 0;
         }
 
         private static void InternalSetIsLocked(bool isLocked) {
             RegistryUtil.SetValue(RegistryPath, IsLockedKey, isLocked ? 0 : 1);
+            UpdateTaskbar();
         }
 
         private static bool InternalGetAutoHide() {
@@ -81,26 +82,31 @@ namespace Zwirbelbart.Taskbar {
                                                                 : NativeMethods.ABS.AlwaysOnTop
                                                     };
             NativeMethods.SHAppBarMessage(NativeMethods.ABM.SetState, ref data);
+
+            UpdateTaskbar();
         }
 
         private static bool InternalGetUseSmallIcons() {
-            return (int)RegistryUtil.GetValue(RegistryPath, UseSmallIconsKey) != 0;
+            return (int) RegistryUtil.GetValue(RegistryPath, UseSmallIconsKey) != 0;
         }
 
         private static void InternalSetUseSmallIcons(bool useSmallIcons) {
             RegistryUtil.SetValue(RegistryPath, UseSmallIconsKey, useSmallIcons ? 1 : 0);
+            UpdateTaskbar();
         }
 
         private static TaskbarItemAppearance InternalGetTaskbarItemAppearance() {
-            return (TaskbarItemAppearance)((int)RegistryUtil.GetValue(RegistryPath, ItemAppearanceKey));
+            return (TaskbarItemAppearance) ((int) RegistryUtil.GetValue(RegistryPath, ItemAppearanceKey));
         }
 
         private static void InternalSetTaskbarItemAppearance(TaskbarItemAppearance appearance) {
-            RegistryUtil.SetValue(RegistryPath, ItemAppearanceKey, (int)appearance);
+            RegistryUtil.SetValue(RegistryPath, ItemAppearanceKey, (int) appearance);
+
+            UpdateTaskbar();
         }
 
         private static int InternalGetRecentJumplistItemCount() {
-            return (int)RegistryUtil.GetValue(RegistryPath, RecentJumplistItemCountKey);
+            return (int) RegistryUtil.GetValue(RegistryPath, RecentJumplistItemCountKey);
         }
 
         private static void InternalSetRecentJumplistItemCount(int value) {
@@ -128,7 +134,13 @@ namespace Zwirbelbart.Taskbar {
         }
 
         private static void InternalSetUsePeekPreview(bool usePeekPreview) {
-            RegistryUtil.SetValue(RegistryPath, UsePeekPreviewKey, !usePeekPreview);
+            RegistryUtil.SetValue(RegistryPath, UsePeekPreviewKey, usePeekPreview ? 0 : 1);
+
+            UpdateTaskbar();
+        }
+
+        private static void UpdateTaskbar() {
+            NativeMethods.SendMessage(Handle, NativeMethods.WM_SETTINGCHANGE, IntPtr.Zero, IntPtr.Zero);
         }
     }
 }
