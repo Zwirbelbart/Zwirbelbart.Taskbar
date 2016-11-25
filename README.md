@@ -1,4 +1,4 @@
-Zwirbelbart.Taskbar
+Zwirbelbart.Taskbar [![Build status](https://ci.appveyor.com/api/projects/status/yo67a175osoirpcy?svg=true)](https://ci.appveyor.com/project/Zwirbelbart/zwirbelbart-taskbar-52ky5)
 ===================
 
 Windows Taskbar Library.
