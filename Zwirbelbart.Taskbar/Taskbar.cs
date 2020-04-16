@@ -8,6 +8,7 @@ namespace Zwirbelbart.Taskbar {
 		private const string RegistryPath = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
 
 		private const string TaskbarClassName = "Shell_TrayWnd";
+
 		private const string IsLockedKey = "TaskbarSizeMove";
 		private const string UseSmallIconsKey = "TaskbarSmallIcons";
 		private const string ItemAppearanceKey = "TaskbarGlomLevel";
@@ -145,7 +146,6 @@ namespace Zwirbelbart.Taskbar {
 
 		private static void InternalSetTaskbarItemAppearance(TaskbarItemAppearance appearance) {
 			RegistryUtil.SetValue(RegistryPath, ItemAppearanceKey, (int)appearance);
-
 			UpdateTaskbar();
 		}
 
@@ -179,7 +179,6 @@ namespace Zwirbelbart.Taskbar {
 
 		private static void InternalSetUsePeekPreview(bool usePeekPreview) {
 			RegistryUtil.SetValue(RegistryPath, UsePeekPreviewKey, usePeekPreview ? 0 : 1);
-
 			UpdateTaskbar();
 		}
 
