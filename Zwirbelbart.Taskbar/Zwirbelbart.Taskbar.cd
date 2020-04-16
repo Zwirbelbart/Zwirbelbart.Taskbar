@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Zwirbelbart.Taskbar.Taskbar">
+    <Position X="3" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="InternalGetAutoHide" Hidden="true" />
+      <Method Name="InternalGetBounds" Hidden="true" />
+      <Method Name="InternalGetIsLocked" Hidden="true" />
+      <Method Name="InternalGetLocation" Hidden="true" />
+      <Method Name="InternalGetRecentJumplistItemCount" Hidden="true" />
+      <Method Name="InternalGetTaskbarItemAppearance" Hidden="true" />
+      <Method Name="InternalGetUsePeekPreview" Hidden="true" />
+      <Method Name="InternalGetUseSmallIcons" Hidden="true" />
+      <Method Name="InternalSetAutoHide" Hidden="true" />
+      <Method Name="InternalSetIsLocked" Hidden="true" />
+      <Method Name="InternalSetRecentJumplistItemCount" Hidden="true" />
+      <Method Name="InternalSetTaskbarItemAppearance" Hidden="true" />
+      <Method Name="InternalSetUsePeekPreview" Hidden="true" />
+      <Method Name="InternalSetUseSmallIcons" Hidden="true" />
+      <Field Name="IsLockedKey" Hidden="true" />
+      <Field Name="ItemAppearanceKey" Hidden="true" />
+      <Field Name="RecentJumplistItemCountKey" Hidden="true" />
+      <Field Name="RegistryPath" Hidden="true" />
+      <Field Name="TaskbarClassName" Hidden="true" />
+      <Method Name="UpdateTaskbar" Hidden="true" />
+      <Field Name="UsePeekPreviewKey" Hidden="true" />
+      <Field Name="UseSmallIconsKey" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAAACAACEAAAAAIQAAoAIEAACAAASAIEAAqAAAMIKgA=</HashCode>
+      <FileName>Taskbar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Zwirbelbart.Taskbar.TaskbarItemAppearance">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskbarItemAppearance.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Zwirbelbart.Taskbar.TaskbarLocation">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>TaskbarLocation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
