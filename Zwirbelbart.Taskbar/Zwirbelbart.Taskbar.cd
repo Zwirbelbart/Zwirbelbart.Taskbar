@@ -3,31 +3,52 @@
   <Class Name="Zwirbelbart.Taskbar.Taskbar">
     <Position X="3" Y="0.5" Width="2.25" />
     <Members>
+      <Field Name="AutoHideInTabletModeKey" Hidden="true" />
       <Method Name="InternalGetAutoHide" Hidden="true" />
+      <Method Name="InternalGetAutoHideInTabletMode" Hidden="true" />
       <Method Name="InternalGetBounds" Hidden="true" />
       <Method Name="InternalGetIsLocked" Hidden="true" />
       <Method Name="InternalGetLocation" Hidden="true" />
+      <Method Name="InternalGetMultiMonitorItemVisibility" Hidden="true" />
+      <Method Name="InternalGetOtherTaskbarsItemAppearance" Hidden="true" />
       <Method Name="InternalGetRecentJumplistItemCount" Hidden="true" />
+      <Method Name="InternalGetShowBadges" Hidden="true" />
+      <Method Name="InternalGetShowOnAllDisplays" Hidden="true" />
+      <Method Name="InternalGetShowTaskViewButton" Hidden="true" />
       <Method Name="InternalGetTaskbarItemAppearance" Hidden="true" />
       <Method Name="InternalGetUsePeekPreview" Hidden="true" />
+      <Method Name="InternalGetUsePowerShell" Hidden="true" />
       <Method Name="InternalGetUseSmallIcons" Hidden="true" />
       <Method Name="InternalSetAutoHide" Hidden="true" />
+      <Method Name="InternalSetAutoHideInTabletMode" Hidden="true" />
       <Method Name="InternalSetIsLocked" Hidden="true" />
+      <Method Name="InternalSetMultiMonitorItemVisibility" Hidden="true" />
+      <Method Name="InternalSetOtherTaskbarsItemAppearance" Hidden="true" />
       <Method Name="InternalSetRecentJumplistItemCount" Hidden="true" />
+      <Method Name="InternalSetShowBadges" Hidden="true" />
+      <Method Name="InternalSetShowOnAllDisplays" Hidden="true" />
+      <Method Name="InternalSetShowTaskViewButton" Hidden="true" />
       <Method Name="InternalSetTaskbarItemAppearance" Hidden="true" />
       <Method Name="InternalSetUsePeekPreview" Hidden="true" />
+      <Method Name="InternalSetUsePowerShell" Hidden="true" />
       <Method Name="InternalSetUseSmallIcons" Hidden="true" />
       <Field Name="IsLockedKey" Hidden="true" />
       <Field Name="ItemAppearanceKey" Hidden="true" />
+      <Field Name="OtherTaskbarsItemAppearanceKey" Hidden="true" />
+      <Field Name="OtherTaskbarsMode" Hidden="true" />
       <Field Name="RecentJumplistItemCountKey" Hidden="true" />
       <Field Name="RegistryPath" Hidden="true" />
+      <Field Name="ShowBadgesKey" Hidden="true" />
+      <Field Name="ShowOnAllDisplaysKey" Hidden="true" />
+      <Field Name="ShowTaskViewButtonKey" Hidden="true" />
       <Field Name="TaskbarClassName" Hidden="true" />
       <Method Name="UpdateTaskbar" Hidden="true" />
       <Field Name="UsePeekPreviewKey" Hidden="true" />
+      <Field Name="UsePowerShellKey" Hidden="true" />
       <Field Name="UseSmallIconsKey" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>IAAACAACEAAAAAIQAAoAIEAACAAASAIEAAqAAAMIKgA=</HashCode>
+      <HashCode>MAGASAgCEgBASAYQIAoIJEAQCAIEWAIEBAqAAAMJKgg=</HashCode>
       <FileName>Taskbar.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,6 +64,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
       <FileName>TaskbarLocation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Zwirbelbart.Taskbar.MultiMonitorTaskbarItemVisibility">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>MultiMonitorTaskbarItemVisibility.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />
