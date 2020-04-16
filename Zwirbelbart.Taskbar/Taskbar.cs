@@ -20,6 +20,7 @@ namespace Zwirbelbart.Taskbar {
 
 		private const string ShowOnAllDisplaysKey = "MMTaskbarEnabled";
 		private const string OtherTaskbarsMode = "MMTaskbarMode";
+		private const string OtherTaskbarsItemAppearanceKey = "MMTaskbarGlomLevel";
 
 		public static bool IsLocked {
 			get { return InternalGetIsLocked(); }
@@ -97,6 +98,10 @@ namespace Zwirbelbart.Taskbar {
 		public static MultiMonitorTaskbarItemVisibility MultiMonitorItemVisibility {
 			get { return InternalGetMultiMonitorItemVisibility(); }
 			set { InternalSetMultiMonitorItemVisibility(value); }
+		}
+		public static TaskbarItemAppearance OtherTaskbarsItemAppearance {
+			get { return InternalGetOtherTaskbarsItemAppearance(); }
+			set { InternalSetOtherTaskbarsItemAppearance(value); }
 		}
 
 		//implementation
@@ -236,6 +241,13 @@ namespace Zwirbelbart.Taskbar {
 
 		private static void InternalSetMultiMonitorItemVisibility(MultiMonitorTaskbarItemVisibility value) {
 			RegistryUtil.SetValue(RegistryPath, OtherTaskbarsMode, (int)value);
+			UpdateTaskbar();
+		}
+		private static TaskbarItemAppearance InternalGetOtherTaskbarsItemAppearance() {
+			return (TaskbarItemAppearance)((int)RegistryUtil.GetValue(RegistryPath, OtherTaskbarsItemAppearanceKey));
+		}
+		private static void InternalSetOtherTaskbarsItemAppearance(TaskbarItemAppearance value) {
+			RegistryUtil.SetValue(RegistryPath, OtherTaskbarsItemAppearanceKey, (int)value);
 			UpdateTaskbar();
 		}
 
