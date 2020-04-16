@@ -43,6 +43,7 @@
     <Compile Include="TaskbarItemAppearance.cs" />
     <Compile Include="TaskbarLocation.cs" />
     <Compile Include="Util\RegistryUtil.cs" />
+    <Compile Include="Util\WindowsVersionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Zwirbelbart.Taskbar.cd" />

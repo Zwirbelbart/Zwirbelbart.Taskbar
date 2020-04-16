@@ -5,8 +5,7 @@ using Zwirbelbart.Taskbar.Util;
 
 namespace Zwirbelbart.Taskbar {
 	public class Taskbar {
-		private const string RegistryPath =
-			@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
+		private const string RegistryPath = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced";
 
 		private const string TaskbarClassName = "Shell_TrayWnd";
 		private const string IsLockedKey = "TaskbarSizeMove";
@@ -14,6 +13,8 @@ namespace Zwirbelbart.Taskbar {
 		private const string ItemAppearanceKey = "TaskbarGlomLevel";
 		private const string RecentJumplistItemCountKey = "Start_JumpListItems";
 		private const string UsePeekPreviewKey = "DisablePreviewDesktop";
+		private const string UsePowerShellKey = "DontUsePowerShellOnWinX";
+
 
 		public static bool IsLocked {
 			get { return InternalGetIsLocked(); }
@@ -57,6 +58,15 @@ namespace Zwirbelbart.Taskbar {
 			set { InternalSetUsePeekPreview(value); }
 		}
 
+		public static bool IsUsePowerShellSupported {
+			get { return WindowsVersionUtil.IsWin10Build14971OrNewer(); }
+		}
+
+		public static bool UsePowerShell {
+			get { return InternalGetUsePowerShell(); }
+			set { InternalSetUsePowerShell(value); }
+		}
+
 		//implementation
 		private static bool InternalGetIsLocked() {
 			return (int)RegistryUtil.GetValue(RegistryPath, IsLockedKey) == 0;
@@ -76,13 +86,10 @@ namespace Zwirbelbart.Taskbar {
 
 		private static void InternalSetAutoHide(bool hide) {
 			var data = new NativeMethods.APPBARDATA {
-				lParam =
-															hide
-																? NativeMethods.ABS.Autohide
-																: NativeMethods.ABS.AlwaysOnTop
+				lParam = hide ? NativeMethods.ABS.Autohide : NativeMethods.ABS.AlwaysOnTop
 			};
-			NativeMethods.SHAppBarMessage(NativeMethods.ABM.SetState, ref data);
 
+			NativeMethods.SHAppBarMessage(NativeMethods.ABM.SetState, ref data);
 			UpdateTaskbar();
 		}
 
@@ -137,6 +144,21 @@ namespace Zwirbelbart.Taskbar {
 			RegistryUtil.SetValue(RegistryPath, UsePeekPreviewKey, usePeekPreview ? 0 : 1);
 
 			UpdateTaskbar();
+		}
+
+		private static bool InternalGetUsePowerShell() {
+			if (IsUsePowerShellSupported)
+				return (int)RegistryUtil.GetValue(RegistryPath, UsePowerShellKey) == 0;
+
+			return false;
+		}
+
+		private static void InternalSetUsePowerShell(bool usePowerShell) {
+			if (IsUsePowerShellSupported)
+				RegistryUtil.SetValue(RegistryPath, UsePowerShellKey, usePowerShell ? 0 : 1);
+
+			//UpdateTaskbar();
+			//todo: this update method does not seem to work on this
 		}
 
 		private static void UpdateTaskbar() {
