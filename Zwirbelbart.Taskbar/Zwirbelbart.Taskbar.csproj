@@ -42,6 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskbarItemAppearance.cs" />
     <Compile Include="TaskbarLocation.cs" />
+    <Compile Include="MultiMonitorTaskbarItemVisibility.cs" />
     <Compile Include="Util\RegistryUtil.cs" />
     <Compile Include="Util\WindowsVersionUtil.cs" />
   </ItemGroup>
