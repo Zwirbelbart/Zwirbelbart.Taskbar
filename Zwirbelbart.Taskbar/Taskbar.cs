@@ -15,6 +15,7 @@ namespace Zwirbelbart.Taskbar {
 		private const string UsePeekPreviewKey = "DisablePreviewDesktop";
 		private const string UsePowerShellKey = "DontUsePowerShellOnWinX";
 		private const string ShowTaskViewButtonKey = "ShowTaskViewButton";
+		private const string AutoHideInTabletModeKey = "TaskbarAutoHideInTabletMode";
 
 
 		public static bool IsLocked {
@@ -70,6 +71,17 @@ namespace Zwirbelbart.Taskbar {
 		public static bool ShowTaskViewButton {
 			get { return InternalGetShowTaskViewButton(); }
 			set { InternalSetShowTaskViewButton(value); }
+		}
+
+		//Available with build 14328
+		//https://www.tenforums.com/tutorials/48127-turn-off-auto-hide-taskbar-tablet-mode-windows-10-a.html
+		public static bool IsAutoHideInTabletModeSupported {
+			get { return WindowsVersionUtil.IsWin10Build14328OrNewer(); }
+		}
+
+		public static bool AutoHideInTabletMode {
+			get { return InternalGetAutoHideInTabletMode(); }
+			set { InternalSetAutoHideInTabletMode(value); }
 		}
 
 		//implementation
@@ -173,6 +185,18 @@ namespace Zwirbelbart.Taskbar {
 		private static void InternalSetShowTaskViewButton(bool showTaskViewButton) {
 			RegistryUtil.SetValue(RegistryPath, ShowTaskViewButtonKey, showTaskViewButton ? 1 : 0);
 			UpdateTaskbar();
+		}
+		private static bool InternalGetAutoHideInTabletMode() {
+			if (IsAutoHideInTabletModeSupported)
+				return (int)RegistryUtil.GetValue(RegistryPath, AutoHideInTabletModeKey) == 1;
+
+			return false;
+		}
+
+		private static void InternalSetAutoHideInTabletMode(bool hide) {
+			//todo: is update needed here?
+			if (IsAutoHideInTabletModeSupported)
+				RegistryUtil.SetValue(RegistryPath, AutoHideInTabletModeKey, hide ? 1 : 0);
 		}
 
 		private static void UpdateTaskbar() {
