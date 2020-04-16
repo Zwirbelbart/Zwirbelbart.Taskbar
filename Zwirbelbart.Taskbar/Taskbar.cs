@@ -150,7 +150,7 @@ namespace Zwirbelbart.Taskbar {
 		}
 
 		private static int InternalGetRecentJumplistItemCount() {
-			return (int)RegistryUtil.GetValue(RegistryPath, RecentJumplistItemCountKey);
+			return (int)RegistryUtil.GetValue(RegistryPath, RecentJumplistItemCountKey, 0);
 		}
 
 		private static void InternalSetRecentJumplistItemCount(int value) {
