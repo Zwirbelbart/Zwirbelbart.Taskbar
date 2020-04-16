@@ -14,6 +14,7 @@ namespace Zwirbelbart.Taskbar {
 		private const string RecentJumplistItemCountKey = "Start_JumpListItems";
 		private const string UsePeekPreviewKey = "DisablePreviewDesktop";
 		private const string UsePowerShellKey = "DontUsePowerShellOnWinX";
+		private const string ShowTaskViewButtonKey = "ShowTaskViewButton";
 
 
 		public static bool IsLocked {
@@ -65,6 +66,10 @@ namespace Zwirbelbart.Taskbar {
 		public static bool UsePowerShell {
 			get { return InternalGetUsePowerShell(); }
 			set { InternalSetUsePowerShell(value); }
+		}
+		public static bool ShowTaskViewButton {
+			get { return InternalGetShowTaskViewButton(); }
+			set { InternalSetShowTaskViewButton(value); }
 		}
 
 		//implementation
@@ -159,6 +164,15 @@ namespace Zwirbelbart.Taskbar {
 
 			//UpdateTaskbar();
 			//todo: this update method does not seem to work on this
+		}
+		private static bool InternalGetShowTaskViewButton() {
+			//todo: update does not work here, is it the right key?
+			return (int)RegistryUtil.GetValue(RegistryPath, ShowTaskViewButtonKey) == 1;
+		}
+
+		private static void InternalSetShowTaskViewButton(bool showTaskViewButton) {
+			RegistryUtil.SetValue(RegistryPath, ShowTaskViewButtonKey, showTaskViewButton ? 1 : 0);
+			UpdateTaskbar();
 		}
 
 		private static void UpdateTaskbar() {
