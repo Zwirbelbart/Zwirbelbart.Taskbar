@@ -158,9 +158,7 @@ namespace Zwirbelbart.Taskbar {
 		}
 
 		private static Rectangle InternalGetBounds() {
-			NativeMethods.RECT rect;
-
-			if (!NativeMethods.GetWindowRect(Handle, out rect))
+			if (!NativeMethods.GetWindowRect(Handle, out var rect))
 				throw new Exception("GetWindowRect failed");
 
 			return Rectangle.FromLTRB(rect.Left, rect.Top, rect.Right, rect.Bottom);
