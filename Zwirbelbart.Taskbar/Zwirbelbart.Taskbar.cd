@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Zwirbelbart.Taskbar.Taskbar">
-    <Position X="3" Y="0.5" Width="2.25" />
+    <Position X="2.75" Y="0.5" Width="2.75" />
     <Members>
       <Field Name="AutoHideInTabletModeKey" Hidden="true" />
       <Method Name="InternalGetAutoHide" Hidden="true" />
@@ -53,7 +53,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Zwirbelbart.Taskbar.TaskbarItemAppearance">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAIAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TaskbarItemAppearance.cs</FileName>
@@ -67,7 +67,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="Zwirbelbart.Taskbar.MultiMonitorTaskbarItemVisibility">
-    <Position X="5.75" Y="3.75" Width="1.5" />
+    <Position X="5.75" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>MultiMonitorTaskbarItemVisibility.cs</FileName>
