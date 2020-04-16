@@ -3,6 +3,7 @@ Zwirbelbart.Taskbar [![Build status](https://ci.appveyor.com/api/projects/status
 
 Windows Taskbar Library.
 
+![Class Diagram](Zwirbelbart.Taskbar.png "Class Diagram")
 
 Parts or theories based on these sources:
 http://winsharp93.wordpress.com/2009/06/29/find-out-size-and-position-of-the-taskbar/
