@@ -16,6 +16,7 @@ namespace Zwirbelbart.Taskbar {
 		private const string UsePowerShellKey = "DontUsePowerShellOnWinX";
 		private const string ShowTaskViewButtonKey = "ShowTaskViewButton";
 		private const string AutoHideInTabletModeKey = "TaskbarAutoHideInTabletMode";
+		private const string ShowBadgesKey = "TaskbarBadges";
 
 
 		public static bool IsLocked {
@@ -82,6 +83,10 @@ namespace Zwirbelbart.Taskbar {
 		public static bool AutoHideInTabletMode {
 			get { return InternalGetAutoHideInTabletMode(); }
 			set { InternalSetAutoHideInTabletMode(value); }
+		}
+		public static bool ShowBadges {
+			get { return InternalGetShowBadges(); }
+			set { InternalSetShowBadges(value); }
 		}
 
 		//implementation
@@ -197,6 +202,14 @@ namespace Zwirbelbart.Taskbar {
 			//todo: is update needed here?
 			if (IsAutoHideInTabletModeSupported)
 				RegistryUtil.SetValue(RegistryPath, AutoHideInTabletModeKey, hide ? 1 : 0);
+		}
+		private static bool InternalGetShowBadges() {
+			return (int)RegistryUtil.GetValue(RegistryPath, ShowBadgesKey) == 1;
+		}
+
+		private static void InternalSetShowBadges(bool value) {
+			RegistryUtil.SetValue(RegistryPath, ShowBadgesKey, value ? 1 : 0);
+			UpdateTaskbar();
 		}
 
 		private static void UpdateTaskbar() {
