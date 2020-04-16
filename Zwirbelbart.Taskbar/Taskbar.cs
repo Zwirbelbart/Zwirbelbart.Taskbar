@@ -18,6 +18,7 @@ namespace Zwirbelbart.Taskbar {
 		private const string AutoHideInTabletModeKey = "TaskbarAutoHideInTabletMode";
 		private const string ShowBadgesKey = "TaskbarBadges";
 
+		private const string ShowOnAllDisplaysKey = "MMTaskbarEnabled";
 
 		public static bool IsLocked {
 			get { return InternalGetIsLocked(); }
@@ -87,6 +88,10 @@ namespace Zwirbelbart.Taskbar {
 		public static bool ShowBadges {
 			get { return InternalGetShowBadges(); }
 			set { InternalSetShowBadges(value); }
+		}
+		public static bool ShowOnAllDisplays {
+			get { return InternalGetShowOnAllDisplays(); }
+			set { InternalSetShowOnAllDisplays(value); }
 		}
 
 		//implementation
@@ -209,6 +214,15 @@ namespace Zwirbelbart.Taskbar {
 
 		private static void InternalSetShowBadges(bool value) {
 			RegistryUtil.SetValue(RegistryPath, ShowBadgesKey, value ? 1 : 0);
+			UpdateTaskbar();
+		}
+
+		private static bool InternalGetShowOnAllDisplays() {
+			return (int)RegistryUtil.GetValue(RegistryPath, ShowOnAllDisplaysKey) == 1;
+		}
+
+		private static void InternalSetShowOnAllDisplays(bool value) {
+			RegistryUtil.SetValue(RegistryPath, ShowOnAllDisplaysKey, value ? 1 : 0);
 			UpdateTaskbar();
 		}
 
